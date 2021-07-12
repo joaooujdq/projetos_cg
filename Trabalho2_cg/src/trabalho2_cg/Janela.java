@@ -1,6 +1,11 @@
 package trabalho2_cg;
 
 
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JOptionPane;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -10,7 +15,8 @@ import javax.swing.JOptionPane;
 
 
 public class Janela extends JFrame {
-	String faces;
+	
+	String cor;
 	
 	JMenuBar menuBar = new JMenuBar();
 	JMenu fileMenu = new JMenu("Primitivas");
@@ -40,7 +46,6 @@ public class Janela extends JFrame {
 	
 	
 	public Janela() {
-		
         initUI();
     }
 
@@ -57,35 +62,35 @@ public class Janela extends JFrame {
     private void createMenuBar() {
     	
         
-        
+         
         
         
         linhasMenu.add(analiticoItem);
         analiticoItem.addActionListener((event) ->
-        new JanelaEspecifica(analiticoItem.getText()));
+        new JanelaEspecifica(analiticoItem.getText(), cor));
         
         linhasMenu.add(DDAItem);
         DDAItem.addActionListener((event) ->
-        new JanelaEspecifica(DDAItem.getText()));
+        new JanelaEspecifica(DDAItem.getText(),cor));
         
         linhasMenu.add(poliBresItem);
         poliBresItem.addActionListener((event) ->
-        new JanelaEspecifica(poliBresItem.getText()));
+        new JanelaEspecifica(poliBresItem.getText(),cor));
         
      
         
         
         poliMenu.add(varreduraItem);
         varreduraItem.addActionListener((event) ->
-        new JanelaEspecifica(varreduraItem.getText()));
+        new JanelaEspecifica(varreduraItem.getText(),cor));
         
         poliMenu.add(boundaryItem);
         boundaryItem.addActionListener((event) ->
-        new JanelaEspecifica(boundaryItem.getText()));
+        new JanelaEspecifica(boundaryItem.getText(),cor));
         
         poliMenu.add(geoItem);
         geoItem.addActionListener((event) ->
-        new JanelaEspecifica(geoItem.getText()));
+        new JanelaEspecifica(geoItem.getText(),cor));
         
         
         
@@ -96,15 +101,15 @@ public class Janela extends JFrame {
         
         circMenu.add(parametricaItem);
         parametricaItem.addActionListener((event) ->
-        new JanelaEspecifica(parametricaItem.getText()));
+        new JanelaEspecifica(parametricaItem.getText(),cor));
         
         circMenu.add(incSimItem);
         incSimItem.addActionListener((event) ->
-        new JanelaEspecifica(incSimItem.getText()));
+        new JanelaEspecifica(incSimItem.getText(),cor));
         
         circMenu.add(circBresItem);
         circBresItem.addActionListener((event) ->
-        new JanelaEspecifica(circBresItem.getText()));
+        new JanelaEspecifica(circBresItem.getText(),cor));
         
 
    
@@ -121,9 +126,13 @@ public class Janela extends JFrame {
         colorMenu.add(colorGreenMenu);
         colorMenu.add(colorBlueMenu);
         
-        colorGreenMenu.addActionListener((event) -> faces = JOptionPane.showInputDialog("Quantidade de faces:"));
-        colorBlueMenu.addActionListener((event) -> faces = JOptionPane.showInputDialog("Quantidade de faces:"));
-        colorRedMenu.addActionListener((event) -> faces = JOptionPane.showInputDialog("Quantidade de faces:"));
+        colorGreenMenu.addActionListener((event) -> cor = selecionarCor("green"));
+        		
+       colorBlueMenu.addActionListener((event) -> cor = selecionarCor("blue"));
+       colorRedMenu.addActionListener((event) -> cor = selecionarCor("red"));
+        
+        
+
 
         menuBar.add(fileMenu);
         menuBar.add(colorMenu);
@@ -133,5 +142,18 @@ public class Janela extends JFrame {
         
     }
 
-
+    public String selecionarCor(String cor) {
+    	switch(cor){
+    	case "green":
+    		JOptionPane.showMessageDialog(null, "Cor verde selecionada.");
+    		break;
+    	case "red":
+    		JOptionPane.showMessageDialog(null, "Cor vermelha selecionada.");
+    		break;
+    	case "blue":
+    		JOptionPane.showMessageDialog(null, "Cor azul selecionada.");
+    		break;
+    	}
+    	return cor;
+}
 }
