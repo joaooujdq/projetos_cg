@@ -43,7 +43,7 @@ public class Desenha extends JComponent {
 		
 
 		g.setColor(Color.red);
-//      algBres(g,px1,py1,px2,py2); // i=0 
+//        algBres(g,px1,py1,px2,py2); // i=0 
 //        algBres(g,px2,py2,px3,py3); //i=1
 //        algBres(g,px3,py3,px4,py4);//i=2
 //        algBres(g,px4,py4,px1,py1);//i=3
@@ -94,17 +94,6 @@ public class Desenha extends JComponent {
 				pontos[i * 2] = pontos[(i * 2) + 2]; //px1 = px2
 				pontos[(i * 2) + 2] = aux; //px2 = px1
 			} //garante que o px1 sempre será o valor de XYmin 
-			
-//			if (pontos[(i * 2) + 1]  < menorY) {
-//				menorY = pontos[(i * 2) + 1] ;
-//			}
-
-//                   if(i == numlados -1) {	
-//                		lados[i] = new Lados(i + 1, pontos[i*2], pontos[i*2] + 1, pontos[0], pontos[1]);
-//                	}else {
-//                		lados[i] = new Lados(i + 1, pontos[i*2] + 2, pontos[i*2] + 3, xymin, um_sob_m);
-//        			}
-			
 			
 			if (i == numlados - 1) {
 				lados[i] = new Lados(i + 1, pontos[(i * 2) + 1] , pontos[1] , pontos[i * 2], um_sob_m);
@@ -167,6 +156,7 @@ public class Desenha extends JComponent {
 				yi = yi + incY;
 			}
 		}
+		
 
 	}
 
