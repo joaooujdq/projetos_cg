@@ -1,7 +1,5 @@
 package trabalho2_cg;
 
-import java.awt.Graphics;
-
 import javax.swing.JFrame;
 
 public class JanelaEspecifica extends JFrame {
